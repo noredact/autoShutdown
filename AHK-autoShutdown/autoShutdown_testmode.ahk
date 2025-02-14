@@ -2,7 +2,7 @@
 #SingleInstance Force
 #Warn
 SendMode "Input"
-
+CoordMode "ToolTip", "Screen"
 exitDetected := 0
 exitWarningTimeout := 5  ; 5 seconds to cancel exit
 
