@@ -79,7 +79,7 @@ clearToolTip() {
 }
 
 shutdownFunction() {
-    Shutdown 8  ; Uncomment this line to actually shut down the computer
+    Shutdown 8
 }
 
 formatShutdownTime(totalSeconds) {
