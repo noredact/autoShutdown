@@ -14,7 +14,8 @@ WARNING!
 This is the working version of the shutdown timer
 This WILL shutdown your computer
 
-Not hotkey is set here, you have to make one yourself
+This function doesn't call itself, running it will do nothing
+No hotkey is set here, you have to make one yourself
 It is recommended to instead add this script to your #includes and call it elsewhere
 Call it by setting a hotkey to trigger 'autoShutdownTimer'
 Or call it by some other means (I use a script I made to trigger functions from a tooltip menu, for example)
