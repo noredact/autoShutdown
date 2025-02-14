@@ -4,6 +4,7 @@
 SendMode "Input"
 CoordMode "ToolTip", "Screen"
 exitDetected := 0
+exitConfirmed := 0
 exitWarningTimeout := 5  ; 5 seconds to cancel exit
 
 /*
@@ -19,8 +20,9 @@ Edit_This_Script_And_Change_This::
 }
 
 autoShutdownTimer() {
-    global exitDetected
+    global exitDetected, exitConfirmed
     exitDetected := 0
+    exitConfirmed := 0
     ; Ask user for seconds to wait
     shutdownInputObject := InputBox("Input number of seconds to wait`n5 minutes = 300`n30 minutes = 1800`n2 hours = 7200`n`nDouble click the timer to cancel", "Shutdown Timer")
     shutdownInputVal := shutdownInputObject.Value
