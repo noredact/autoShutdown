@@ -62,7 +62,7 @@ shutdownToolTip(shutdownRemaining) {
 
     if (detectedWindow == ttWindow1 || detectedWindow == ttWindow2) {
         if exitDetected > 0 {
-            ExitApp
+            Return
         } else {
             ToolTip("Abort? `n`nClick again within " . exitWarningTimeout . " seconds to cancel shutdown`n`n"
             , 0, 40, 12)
