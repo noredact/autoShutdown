@@ -68,7 +68,9 @@ clearToolTip() {
 }
 
 shutdownFunction() {
-    MsgBox "Test mode complete`nSystem would have shutdown now"
+MsgBox "Test mode complete`nSystem would have shutdown now"
+ToolTip(,,,12)
+ToolTip(,,,14)
     Return
     ; Shutdown, 8  ; Uncomment this line to actually shut down the computer
 }
