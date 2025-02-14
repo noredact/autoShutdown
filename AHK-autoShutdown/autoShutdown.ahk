@@ -46,8 +46,7 @@ shutdownToolTip(shutdownRemaining) {
     ; Convert seconds to human-readable format
     readableTimeout := formatShutdownTime(shutdownRemaining)
 
-    ToolTip("Shutting down in: " . readableTimeout . "`nDouble click here to cancel"
-    , 0, 0, 14)
+    ToolTip("Shutting down in: " . readableTimeout . "`nDouble click here to cancel", 0, 0, 14)
     sleep 1000
     shutdownRemaining -= 1
     if shutdownRemaining > 0
