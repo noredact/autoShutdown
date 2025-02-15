@@ -5,7 +5,7 @@ SendMode "Input"
 exitConfirmed := 0
 exitDetected := 0
 exitWarningTimeout := 5  ; 5 seconds to cancel exit
-
+CoordMode "ToolTip", "Screen"
 /*
 WARNING!
 THIS WILL SHUTDOWN YOUR COMPUTER
@@ -15,18 +15,20 @@ This is the working version of the shutdown timer
 This WILL shutdown your computer
 
 No hotkey is set here, you have to make one yourself
-It is recommended to instead add this script to your #includes and call it elsewhere
-Call it by setting a hotkey to trigger 'autoShutdownTimer'
 Or call it by some other means (I use a script I made to trigger functions from a tooltip menu, for example)
 
-Change the 'exitWarningTimeout variable above should you so desire, default is 5 seconds'
+Change the 'exitWarningTimeout' variable above should you so desire, default is 5 seconds
 
 WARNING!
 THIS WILL SHUTDOWN YOUR COMPUTER
 WARNING!
 */
+shutdownFunction() {
+    ; msgbox "Computer would turn off now" ; msgbox for testing
+    Shutdown 8  
+}
 
-
+autoShutdownTimer
 
 autoShutdownTimer() {
     global exitDetected, exitConfirmed
@@ -55,14 +57,14 @@ shutdownToolTip(shutdownRemaining) {
     if exitConfirmed < 1 {
         if shutdownRemaining > 0
             shutdownToolTip(shutdownRemaining)
-    else {
+        else {
         clearToolTip
         shutdownFunction
-    }
+        }
     }
     else {
         clearToolTip
-        return
+        exitApp
     }
 }
 
@@ -76,6 +78,7 @@ shutdownToolTip(shutdownRemaining) {
         if exitDetected > 0 {
             clearToolTip
             exitConfirmed := 1
+            exitApp
         } else {
             ToolTip("Abort? `n`nClick again within " . exitWarningTimeout . " seconds to cancel shutdown`n`n"
             , 0, 40, 12)
@@ -90,9 +93,6 @@ clearToolTip() {
     ToolTip(,,,14)
 }
 
-shutdownFunction() {
-    Shutdown 8
-}
 
 formatShutdownTime(totalSeconds) {
     ; Convert total seconds to minutes and seconds
